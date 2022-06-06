@@ -13,9 +13,6 @@ sunset_timedate=$(echo "$sun_data" | jq -r '.results.sunset')
 sunset=$(date -d "$sunset_timedate" '+%s')
 sunrise=$(date -d "$sunrise_timedate" '+%s')
 now=$(date '+%s')
-echo "${sunset}"
-echo "${sunrise}"
-echo "${now}"
 
 # Observation conditions are ideal 2 hours before sunrise or 2 hours after sunset
 if [ $now -lt $sunrise ] && [ $now -gt $((sunrise - 7200)) ] \
